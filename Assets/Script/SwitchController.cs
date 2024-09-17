@@ -20,6 +20,9 @@ public class SwitchController : MonoBehaviour {
     private bool isOn;
     private Renderer renderer;
 
+    public ScoreManager scoreManager;
+    public float score;
+
     void Start() { 
 
         renderer = GetComponent<Renderer>();
@@ -45,6 +48,9 @@ public class SwitchController : MonoBehaviour {
         } else {
             Set(true);
         }
+
+        scoreManager.AddScore(score);
+
     }
 
     void Set(bool active) {
