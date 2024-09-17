@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameOverUIController : MonoBehaviour {
 
     public Button mainMenuButton;
+    [SerializeField] private int indexScene;
 
     private void Start() {
         
@@ -16,7 +17,7 @@ public class GameOverUIController : MonoBehaviour {
 
     public void MainMenu() {
         
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene(indexScene);
 
     }
 

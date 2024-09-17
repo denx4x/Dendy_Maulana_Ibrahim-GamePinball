@@ -12,9 +12,14 @@ public class LauncherController : MonoBehaviour {
     private Renderer renderer;
     private bool isHold;
 
+    [SerializeField] private Material onMat;
+    [SerializeField] private Material offMat;
+
     void Start() {
        
         isHold = false;
+
+        renderer = GetComponent<Renderer>();
 
     }
 
@@ -35,7 +40,9 @@ public class LauncherController : MonoBehaviour {
     }
 
     IEnumerator StartHold(Collider collider) {
-        
+
+        renderer.material = onMat;
+
         isHold = true;
 
         float force = 0.0f;
@@ -52,6 +59,7 @@ public class LauncherController : MonoBehaviour {
 
         collider.GetComponent<Rigidbody>().AddForce(Vector3.forward * force);
         isHold = false;
+        renderer.material = offMat;
 
     }
 

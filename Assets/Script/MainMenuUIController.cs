@@ -9,6 +9,9 @@ public class MainMenuUIController : MonoBehaviour {
     public Button playButton;
     public Button exitButton;
 
+    [SerializeField] private GameObject panelCredit;
+    [SerializeField] private int indexScene;
+
     private void Start() {
 
         playButton.onClick.AddListener(PlayGame);
@@ -18,12 +21,24 @@ public class MainMenuUIController : MonoBehaviour {
 
     public void PlayGame() {
 
-        SceneManager.LoadScene("Pinball_Game");
+        SceneManager.LoadScene(indexScene);
 
     }
 
-    private void ExitGame() {
+    public void ExitGame() {
         Application.Quit();
+    }
+
+    public void ShowCredit() {
+
+        panelCredit.SetActive(true);
+
+    }
+
+    public void HideCredit() {
+
+        panelCredit.SetActive(false);
+
     }
 
 }

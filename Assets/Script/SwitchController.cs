@@ -23,6 +23,8 @@ public class SwitchController : MonoBehaviour {
     public ScoreManager scoreManager;
     public float score;
 
+    public VFXManager VFXManager;
+
     void Start() { 
 
         renderer = GetComponent<Renderer>();
@@ -36,6 +38,8 @@ public class SwitchController : MonoBehaviour {
 
         if (other == bola) {
             Toggle();
+
+            VFXManager.PlayVFX(other.transform.position);
         }
 
     }
@@ -44,7 +48,7 @@ public class SwitchController : MonoBehaviour {
        
         if (state == SwitchState.On) {
             Set(false);
-      
+
         } else {
             Set(true);
         }
